@@ -1,0 +1,137 @@
+:root {
+  --color-very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --color-desaturated-dark-blue: hsl(214, 17%, 51%);
+  --color-grayish-blue: hsl(212, 23%, 69%);
+  --color-light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  font-size: 62.5%;
+  color-scheme: dark light;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: "Manrope", sans-serif;
+  font-size: 1.3rem;
+  background-color: var(--color-light-grayish-blue);
+  display: grid;
+  place-items: center;
+}
+
+img,
+picture,
+svg,
+video {
+  display: block;
+  width: 100%;
+}
+
+.main {
+  width: min(85rem, 90%);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  display: flex;
+}
+.main__illustration {
+  width: 40%;
+}
+.main__photo {
+  width: 100%;
+  height: 100%;
+}
+.main__img {
+  height: 100%;
+}
+.main__text-content {
+  width: 60%;
+  background-color: #fff;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
+  row-gap: 1.5rem;
+}
+.main__text {
+  line-height: 1.7;
+  color: var(--color-desaturated-dark-blue);
+  font-size: 1.6rem;
+}
+.main__profile-box-main {
+  display: flex;
+  column-gap: 1.5rem;
+  align-items: center;
+}
+.main__profile-photo {
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.main__profile-img {
+  min-height: 100%;
+}
+.main__profile-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.main__profile-name {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--color-very-dark-grayish-blue);
+}
+.main__profile-date {
+  color: var(--color-desaturated-dark-blue);
+}
+.main__share-btn {
+  margin-left: auto;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  display: block;
+  padding: 1rem;
+  border: none;
+  cursor: pointer;
+  background-color: var(--color-light-grayish-blue);
+  transition: all 0.2s;
+}
+.main__share-btn:hover .main__share-icon {
+  filter: invert(7%) sepia(99%) saturate(7281%) hue-rotate(247deg) brightness(103%) contrast(144%);
+}
+.main__share-icon {
+  width: 100%;
+  height: 100%;
+  transition: all 0.5s;
+}
+.main__pop-up {
+  background-color: var(--color-very-dark-grayish-blue);
+  border-radius: 1rem;
+  width: max-content;
+  padding: 1.5rem;
+  display: flex;
+  column-gap: 1rem;
+}
+.main__pop-up-text {
+  text-transform: uppercase;
+  color: var(--color-light-grayish-blue);
+  letter-spacing: 0.5rem;
+  font-size: 1.5;
+}
+
+.heading {
+  color: var(--color-very-dark-grayish-blue);
+  font-size: 2.5rem;
+}
+
+/*# sourceMappingURL=style.css.map */
