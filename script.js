@@ -10,9 +10,9 @@ shareBtn.addEventListener("click", function () {
   popUp.classList.toggle("unhide--pop-up");
 
   if (window.screen.width <= 400) {
-    profileBox.classList.toggle("hide");
-    shareBtnPopup.classList.toggle("unhide");
-    mainText.style.marginBottom = "4rem";
+    profileBox.classList.add("hide");
+    shareBtnPopup.classList.add("unhide");
+    mainText.style.marginBottom = "3rem";
   }
 });
 
