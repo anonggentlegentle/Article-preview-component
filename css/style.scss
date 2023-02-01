@@ -5,6 +5,9 @@
   --color-light-grayish-blue: hsl(210, 46%, 95%);
 }
 
+$bp-1: 56.25em; // 900px;
+$bp-2: 25em; // 400px;
+
 *,
 *::after,
 *::before {
@@ -17,6 +20,10 @@ html {
   box-sizing: border-box;
   font-size: 62.5%;
   color-scheme: dark light;
+
+  @media only screen and (max-width: $bp-2) {
+    font-size: 50%;
+  }
 }
 
 body {
@@ -42,12 +49,23 @@ video {
 .main {
   width: min(85rem, 90%);
   border-radius: 0.75rem;
-  overflow: hidden;
 
   display: flex;
 
+  @media only screen and (max-width: $bp-1) {
+    margin: 2rem;
+    flex-direction: column;
+  }
+
   &__illustration {
     width: 40%;
+    border-radius: 0.75rem 0 0 0.75rem;
+    overflow: hidden;
+
+    @media only screen and (max-width: $bp-1) {
+      width: 100%;
+      border-radius: 1rem 1rem 0 0;
+    }
   }
 
   &__photo {
@@ -63,10 +81,21 @@ video {
     width: 60%;
     background-color: #fff;
     padding: 4rem;
+    border-radius: 0 0.75rem 0.75rem 0;
+    position: relative;
 
     display: flex;
     flex-direction: column;
     row-gap: 1.5rem;
+
+    @media only screen and (max-width: $bp-1) {
+      width: 100%;
+      border-radius: 0 0 1rem 1rem;
+    }
+
+    @media only screen and (max-width: $bp-2) {
+      padding: 4.5rem;
+    }
   }
 
   &__text {
@@ -75,7 +104,7 @@ video {
     font-size: 1.6rem;
   }
 
-  &__profile-box-main {
+  &__profile-box {
     display: flex;
     column-gap: 1.5rem;
     align-items: center;
@@ -119,6 +148,11 @@ video {
     cursor: pointer;
     background-color: var(--color-light-grayish-blue);
     transition: all 0.2s;
+
+    &--pop-up {
+      display: none;
+      margin-left: auto;
+    }
   }
 
   &__share-btn:hover &__share-icon {
@@ -138,10 +172,49 @@ video {
     background-color: var(--color-very-dark-grayish-blue);
     border-radius: 1rem;
     width: max-content;
-    padding: 1.5rem;
+    padding: 1.5rem 3rem;
+    position: absolute;
+    bottom: 30%;
+    right: -5.2rem;
 
-    display: flex;
+    display: none;
     column-gap: 1rem;
+    align-items: center;
+
+    @media only screen and (max-width: $bp-1) {
+      right: 0;
+      bottom: 10rem;
+    }
+
+    @media only screen and (max-width: $bp-2) {
+      bottom: 0;
+      right: 0;
+      width: 100%;
+      border-radius: 0 0 1rem 1rem;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border: 12px solid transparent;
+      border-top-color: var(--color-very-dark-grayish-blue);
+      border-bottom: 0;
+      margin-left: -12px;
+      margin-bottom: -10px;
+
+      @media only screen and (max-width: $bp-1) {
+        left: unset;
+        right: 4.5rem;
+      }
+
+      @media only screen and (max-width: $bp-2) {
+        display: none;
+      }
+    }
   }
 
   &__pop-up-text {
@@ -150,9 +223,34 @@ video {
     letter-spacing: 0.5rem;
     font-size: 1.5;
   }
+
+  &__socials-box {
+    display: flex;
+    align-items: center;
+    column-gap: 1rem;
+  }
 }
 
 .heading {
   color: var(--color-very-dark-grayish-blue);
   font-size: 2.5rem;
+
+  @media only screen and (max-width: $bp-2) {
+    font-size: 2rem;
+  }
+}
+
+// State change
+
+.unhide--pop-up {
+  margin-top: 5rem;
+  display: flex;
+}
+
+.unhide {
+  display: block;
+}
+
+.hide {
+  display: none;
 }
