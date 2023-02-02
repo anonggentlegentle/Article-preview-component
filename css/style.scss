@@ -149,23 +149,36 @@ video {
     background-color: var(--color-light-grayish-blue);
     transition: all 0.2s;
 
+    @media only screen and (max-width: $bp-2) {
+      padding: 0.75rem;
+    }
+
+    &:hover,
+    &:active {
+      background-color: var(--color-desaturated-dark-blue);
+    }
+
     &--pop-up {
       display: none;
       margin-left: auto;
+      background-color: var(--color-grayish-blue);
     }
-  }
-
-  &__share-btn:hover &__share-icon {
-    filter: invert(7%) sepia(99%) saturate(7281%) hue-rotate(247deg)
-      brightness(103%) contrast(144%);
   }
 
   &__share-icon {
     width: 100%;
     height: 100%;
-    transition: all 0.5s;
-    // filter: invert(99%) sepia(4%) saturate(2%) hue-rotate(148deg)
-    //   brightness(105%) contrast(100%);
+    transition: all 0.2s;
+    fill: var(--color-very-dark-grayish-blue);
+    display: block;
+
+    &--pop-up {
+      fill: var(--color-light-grayish-blue);
+    }
+  }
+
+  &__share-btn:hover &__share-icon {
+    fill: var(--color-light-grayish-blue);
   }
 
   &__pop-up {
@@ -191,6 +204,9 @@ video {
       right: 0;
       width: 100%;
       border-radius: 0 0 1rem 1rem;
+      padding: 2.5rem;
+
+      column-gap: 2rem;
     }
 
     &::after {
@@ -228,6 +244,10 @@ video {
     display: flex;
     align-items: center;
     column-gap: 1rem;
+
+    @media only screen and (max-width: $bp-2) {
+      column-gap: 2rem;
+    }
   }
 }
 
@@ -253,4 +273,16 @@ video {
 
 .hide {
   display: none;
+}
+
+.shareBtnBackground {
+  background-color: var(--color-desaturated-dark-blue);
+}
+
+.shareBtnFill {
+  fill: var(--color-light-grayish-blue);
+}
+
+.marginBottom {
+  margin-bottom: 5rem;
 }
