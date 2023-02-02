@@ -6,7 +6,7 @@ const popUp = document.querySelector(".main__pop-up");
 const profileBox = document.querySelector(".main__profile-box");
 const mainText = document.querySelector(".main__text");
 
-shareBtn.addEventListener("click", function () {
+shareBtn.addEventListener("click", function (e) {
   popUp.classList.toggle("unhide--pop-up");
 
   if (window.screen.width <= 400) {
@@ -22,6 +22,15 @@ shareBtnPopup.addEventListener("click", function () {
   shareBtnPopup.classList.remove("unhide");
 
   if (window.screen.width <= 400) {
-    profileBox.classList.remove("hide");
+    profileBox.classList.toggle("hide");
   }
 });
+
+const resetOnResize = function () {
+  popUp.classList.remove("unhide--pop-up");
+  profileBox.classList.remove("hide");
+  shareBtnPopup.classList.remove("unhide");
+  mainText.style.marginBottom = "0";
+};
+
+window.onresize = resetOnResize;
